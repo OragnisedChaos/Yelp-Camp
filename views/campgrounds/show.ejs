@@ -15,24 +15,10 @@
       </ul>
       <div class="card-body">
         <a class="card-link btn btn-warning" href="/campgrounds/<%= campground._id%>/edit">Edit Campground</a>
-        <form class="d-line" action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST">
+        <form class="d-inline" action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST">
             <button class="btn btn-danger">DELETE</button>
           </form>
       </div>
     </div>
   </div>
 </div>
-
-<h1><%=campground.title%></h1>
-<h2><%=campground.location%></h2>
-<img src="<%= campground.image %>" />
-<p><%=campground.description%></p>
-
-<footer>
-  <a href="/campgrounds">ALL CAMPGROUND</a> <br /><br />
-  <a href="/campgrounds/<%= campground._id%>/edit">Edit Campground</a>
-  <br /><br />
-  <form action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST">
-    <button>DELETE</button>
-  </form>
-</footer>
