@@ -15,7 +15,7 @@ const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user");
-const MongoStore = require('connect-mongo');
+const MongoStore = require("connect-mongo");
 const campgroundRoutes = require("./routes/campgrounds");
 const reviewRoutes = require("./routes/reviews");
 const userRoutes = require("./routes/user");
@@ -47,12 +47,12 @@ const store = MongoStore.create({
   mongoUrl: dbUrl,
   touchAfter: 24 * 60 * 60,
   crypto: {
-      secret: 'thisshouldbeabettersecret!'
-  }
+    secret: "thisshouldbeabettersecret!",
+  },
 });
-store.on('error',(e)=>{
-  console.log('Session Store Error' , e)
-})
+store.on("error", (e) => {
+  console.log("Session Store Error", e);
+});
 const sessionConfig = {
   store,
   secret: "thisshouldbeabettersecret",
@@ -65,7 +65,7 @@ const sessionConfig = {
     expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
     maxAge: 1000 * 60 * 60 * 24 * 7,
   },
-}
+};
 app.use(session(sessionConfig));
 app.use(flash());
 app.use(helmet());
